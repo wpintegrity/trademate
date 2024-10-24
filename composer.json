@@ -1,0 +1,19 @@
+{
+    "name": "wpintegrity/trademate",
+    "description": "An Essential Plugin for WooCommerce to Extend its functionalities",
+    "type": "wordpress-plugin",
+    "license": "GPLv2 or later",
+    "autoload": {
+        "psr-4": {
+            "WpIntegrity\\TradeMate\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "WPIntegrity",
+            "email": "info.wpintegrity@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

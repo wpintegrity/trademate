@@ -1,0 +1,27 @@
+.settings-menu {
+    .layout-menu {
+        min-height: 50vh;
+        padding: 0;
+
+        .active-menu-item {
+            .p-menuitem-content {
+                background: var(--primary-color);
+                border-radius: 6px;
+
+                .p-menuitem-link {
+                    box-shadow: none;
+                }
+            }
+            
+            .p-menuitem-icon, .p-menuitem-text {
+                color: var(--primary-color-text);
+            }
+        }
+        .p-menuitem-icon {
+            font-size: 18px;
+        }
+        .p-menuitem-text {
+            font-size: 18px;
+        }
+    }
+}
