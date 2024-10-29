@@ -60,9 +60,9 @@ class Settings {
                 'icon'  => 'pi-cog'
             ],
             [
-                'id'    => 'trademate_account',
-                'title' => __( 'Account', 'trademate' ),
-                'icon'  => 'pi-user'
+                'id'    => 'trademate_cart',
+                'title' => __( 'Cart', 'trademate' ),
+                'icon'  => 'pi-shopping-cart'
             ],
         ];
 
@@ -82,13 +82,6 @@ class Settings {
                 'name'        => 'new_customer_registration_email',
                 'label'       => __( 'New Customer Registration Email', 'trademate' ),
                 'description' => __( 'Get new customers registration email to the admin email', 'trademate' ),
-                'type'        => 'switch',
-                'default'     => 'off'
-            ],
-            'clear_cart_button' => [
-                'name'        => 'clear_cart_button',
-                'label'       => __( 'Clear Cart Button', 'trademate' ),
-                'description' => __( 'Add a clear cart button on the cart page to empty the entire cart with one click', 'trademate' ),
                 'type'        => 'switch',
                 'default'     => 'off'
             ],
@@ -119,19 +112,19 @@ class Settings {
             ],
         ];
 
-        $account_options = [
-            'my_account_menu' => [
-                'name'        => 'my_account_menu',
-                'label'       => __( 'My Account Menu', 'trademate' ),
-                'description' => __( 'Allow users to add custom profile picture from the My Account > Account details page', 'trademate' ),
+        $cart_options = [
+            'clear_cart_button' => [
+                'name'        => 'clear_cart_button',
+                'label'       => __( 'Clear Cart Button', 'trademate' ),
+                'description' => __( 'Add a clear cart button on the cart page to empty the entire cart with one click', 'trademate' ),
                 'type'        => 'switch',
-                'default'     => 'on'
+                'default'     => 'off'
             ]
         ];
 
         $settings_fields = [
             'trademate_general' => apply_filters( 'trademate_general_options', $general_options ),
-            'trademate_account' => apply_filters( 'trademate_account_options', $account_options ),
+            'trademate_cart'    => apply_filters( 'trademate_cart_options', $cart_options ),
         ];
 
         return apply_filters( 'trademate_settings_fields', $settings_fields );

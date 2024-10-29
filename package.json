@@ -16,13 +16,16 @@
   "author": "WPIntegrity",
   "license": "GPL-2.0-or-later",
   "devDependencies": {
-    "@wordpress/hooks": "^4.7.0",
-    "@wordpress/plugins": "^7.7.0",
+    "@wordpress/block-editor": "^14.5.0",
+    "@wordpress/blocks": "^13.10.0",
+    "@wordpress/components": "^28.10.0",
+    "@wordpress/element": "^6.10.0",
     "@wordpress/scripts": "^29.0.0",
     "css-loader": "^7.1.2",
     "style-loader": "^4.0.0"
   },
   "dependencies": {
+    "@wordpress/i18n": "^5.10.0",
     "axios": "^1.7.7",
     "primeflex": "^3.3.1",
     "primeicons": "^7.0.0",

@@ -36,7 +36,7 @@ final class TradeMate {
      *
      * @var array
      */
-    private $contatiner = [];
+    private $container = [];
 
     /**
      * Constructor class that contains all essential hooks/actions
@@ -114,11 +114,13 @@ final class TradeMate {
      * @return void
      */
     public function init_classes() {
-        $this->contatiner[ 'assets' ] = new \WpIntegrity\TradeMate\Assets();
+        $this->container[ 'assets' ] = new \WpIntegrity\TradeMate\Assets();
 
         if( is_admin() ) {
-            $this->contatiner[ 'admin_settings' ] = new \WpIntegrity\TradeMate\Admin\Manager();
+            $this->container[ 'admin_settings' ] = new \WpIntegrity\TradeMate\Admin\Manager();
         }
+
+        $this->container['features'] = new \WpIntegrity\TradeMate\Features();
     }
     
     /**
