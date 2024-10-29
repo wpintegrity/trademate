@@ -1,3 +1,4 @@
+.DS_Storegi
 /vendor/
 node_modules
 build

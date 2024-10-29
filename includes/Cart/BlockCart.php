@@ -1,8 +1,6 @@
 <?php
 namespace WpIntegrity\TradeMate\Cart;
 
-use WpIntegrity\TradeMate\Helper;
-
 /**
  * BlockCart Class
  *

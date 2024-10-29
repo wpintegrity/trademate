@@ -34,7 +34,7 @@ class ClassicCart {
     public function clear_cart_button() {
         if ( Helper::get_option( 'clear_cart_button', 'trademate_general' ) === true ) :
         ?>
-            <button type="submit" class="button" name="clear_cart" value="<?php esc_attr_e( 'Clear cart', 'trademate' ); ?>"><?php esc_html_e( 'Clear cart', 'storekit' ); ?></button>
+            <button type="submit" class="button" name="clear_cart" value="<?php esc_attr_e( 'Clear cart', 'trademate' ); ?>"><?php esc_html_e( 'Clear cart', 'trademate' ); ?></button>
         <?php
         endif;
     }
