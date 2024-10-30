@@ -1,20 +1,36 @@
-import React, { useEffect } from 'react';  
-import { Menu } from 'primereact/menu';  
+import React, { useState } from 'react';
+import { __ } from '@wordpress/i18n';
 
-const MenuBar = ( { sections, activeMenuItem, setActiveMenuItem } ) => {
-    const dynamicMenuItems = sections.map((section) => {
-        return {
-            label: section.title,
-            icon: 'pi ' + section.icon,
-            className: section.id === activeMenuItem ? 'active-menu-item' : '',
-            command: () => setActiveMenuItem( section.id )
-        }
-    });
-    
-    const menuItems = [ ...dynamicMenuItems ];
+const MenuBar = ({ sections, activeMenuItem, setActiveMenuItem }) => {
+    const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <Menu model={menuItems} className='w-full layout-menu'/>
+        <nav className={`custom-menu ${menuOpen ? 'open' : ''}`}>
+            <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+                <i className='pi pi-bars'/> 
+                <span>{ __( 'Menu', 'trademate' ) }</span>
+            </button>
+            <ul className="menu-list">
+                {/* Close Button */}
+                <button className="close-button" onClick={() => setMenuOpen(false)}>
+                    ✕
+                </button>
+
+                {sections.map((section) => (
+                    <li
+                        key={section.id}
+                        className={`menu-item ${section.id === activeMenuItem ? 'active-menu-item' : ''}`}
+                        onClick={() => {
+                            setActiveMenuItem(section.id);
+                            setMenuOpen(false); // Close menu on item click
+                        }}
+                    >
+                        <i className={`pi ${section.icon}`} />
+                        <span>{section.title}</span>
+                    </li>
+                ))}
+            </ul>
+        </nav>
     );
 }
 

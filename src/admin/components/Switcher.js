@@ -8,11 +8,13 @@ const Switcher = ({ label, description, switchValue, setSwitchValue }) => {
                 <label htmlFor="switch" className="mb-2"> {label} </label>
                 <p className="text-sm text-400"> { description } </p>
             </div>
-            <InputSwitch 
-                id='switch' 
-                checked={switchValue} 
-                onChange={(e) => setSwitchValue(e.value)} 
-            />
+            <div className="input-wrapper">
+                <InputSwitch 
+                    id='switch' 
+                    checked={switchValue} 
+                    onChange={(e) => setSwitchValue(e.value)} 
+                />
+            </div>
         </div>
     );
 }

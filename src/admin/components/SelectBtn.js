@@ -8,11 +8,13 @@ const SelectBtn = ({ label, description, selectOptions, value, setValue }) => {
                 <label htmlFor="switch" className="mb-2"> {label} </label>
                 <p className="text-sm text-400"> { description } </p>
             </div>
-            <SelectButton 
-                value={value} 
-                onChange={(e) => setValue(e.value)} 
-                options={selectOptions} 
-            />
+            <div className="input-wrapper">
+                <SelectButton 
+                    value={value} 
+                    onChange={(e) => setValue(e.value)} 
+                    options={selectOptions} 
+                />
+            </div>
         </div>
     );
 }
