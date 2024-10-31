@@ -1,8 +1,8 @@
 <?php
-namespace WpIntegrity\TradeMate\Cart;
+namespace WpIntegrity\TradeMate\Product;
 
 /**
- * Cart features Manager Class.
+ * Product feature Manager Class.
  *
  * @since 1.0.0
  */
@@ -15,8 +15,7 @@ class Manager {
      * @since 1.0.0
      */
     public function __construct() {
-        // Initialize Cart functionality classes
-        new ClassicCart();
-        new BlockCart();
+        // Initialize Product functionality classes
+        new Stock();
     }
 }

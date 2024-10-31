@@ -4,9 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
 const entryPoint = {
-    admin                    : './src/admin/index.js',
-    'frontend/clear-cart'    : './src/frontend/clear-cart.js',
-    'blocks/clear-cart-block': './src/blocks/clear-cart-button/index.js'
+    admin                        : './src/admin/index.js',
+    'frontend/clear-cart-handler': './src/frontend/clear-cart-handler.js',
+    'blocks/clear-cart-block'    : './src/blocks/clear-cart-button/index.js'
 }
 
 const trademateConfig = {

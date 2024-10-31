@@ -22,8 +22,8 @@ class BlockCart {
         add_action( 'enqueue_block_editor_assets', [ $this, 'register_scripts' ] );
         add_action( 'init', [ $this, 'register_clear_cart_block' ], 11 );
         add_action( 'enqueue_block_assets', [ $this, 'enqueue_clear_cart_script' ] );
-        add_action( 'wp_ajax_clear_cart', [ $this, 'clear_cart' ] );
-        add_action( 'wp_ajax_nopriv_clear_cart', [ $this, 'clear_cart' ] );
+        add_action( 'wp_ajax_clear_cart', [ $this, 'clear_cart_handler' ] );
+        add_action( 'wp_ajax_nopriv_clear_cart', [ $this, 'clear_cart_handler' ] );
     }
 
     /**
@@ -74,7 +74,7 @@ class BlockCart {
             wp_enqueue_script( 'trademate-clear-cart' );
             wp_localize_script( 'trademate-clear-cart', 'tm_clear_cart', array(
                 'ajax_url' => admin_url( 'admin-ajax.php' ),
-                'nonce'    => wp_create_nonce( 'clear_cart_nonce' ),
+                'nonce'    => wp_create_nonce( 'tm_clear_cart_nonce' ),
             ) );
         }
     }
@@ -86,8 +86,11 @@ class BlockCart {
      *
      * @return void
      */
-    public function clear_cart() {
-        check_ajax_referer( 'clear_cart_nonce', 'nonce' );
+    public function clear_cart_handler() {
+        // Verify nonce for security
+        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'tm_clear_cart_nonce' ) ) {
+            wp_send_json_error( 'Invalid nonce' );
+        }
 
         if ( WC()->cart ) {
             WC()->cart->empty_cart();

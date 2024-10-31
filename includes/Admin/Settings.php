@@ -64,6 +64,11 @@ class Settings {
                 'title' => __( 'Cart', 'trademate' ),
                 'icon'  => 'pi-shopping-cart'
             ],
+            [
+                'id'    => 'trademate_product',
+                'title' => __( 'Product', 'trademate' ),
+                'icon'  => 'pi-box'
+            ],
         ];
 
         return apply_filters( 'trademate_settings_sections', $sections );
@@ -85,6 +90,19 @@ class Settings {
                 'type'        => 'switch',
                 'default'     => 'off'
             ],
+        ];
+
+        $cart_options = [
+            'clear_cart_button' => [
+                'name'        => 'clear_cart_button',
+                'label'       => __( 'Clear Cart Button', 'trademate' ),
+                'description' => __( 'Add a clear cart button on the cart page to empty the entire cart with one click', 'trademate' ),
+                'type'        => 'switch',
+                'default'     => 'off'
+            ]
+        ];
+        
+        $product_options = [
             'default_product_stock' => [
                 'name'        => 'default_product_stock',
                 'label'       => __( 'Default Product Stock', 'trademate' ),
@@ -112,19 +130,10 @@ class Settings {
             ],
         ];
 
-        $cart_options = [
-            'clear_cart_button' => [
-                'name'        => 'clear_cart_button',
-                'label'       => __( 'Clear Cart Button', 'trademate' ),
-                'description' => __( 'Add a clear cart button on the cart page to empty the entire cart with one click', 'trademate' ),
-                'type'        => 'switch',
-                'default'     => 'off'
-            ]
-        ];
-
         $settings_fields = [
             'trademate_general' => apply_filters( 'trademate_general_options', $general_options ),
             'trademate_cart'    => apply_filters( 'trademate_cart_options', $cart_options ),
+            'trademate_product' => apply_filters( 'trademate_product_options', $product_options ),
         ];
 
         return apply_filters( 'trademate_settings_fields', $settings_fields );

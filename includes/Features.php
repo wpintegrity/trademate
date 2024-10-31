@@ -4,7 +4,7 @@ namespace WpIntegrity\TradeMate;
 /**
  * Features Manager Class.
  *
- * Initializes and manages various StoreKit features.
+ * Initializes and manages various TradeMate features.
  *
  * @since 1.0.0
  */
@@ -19,5 +19,6 @@ class Features {
     public function __construct() {
         // Initialize features classes
         new \WpIntegrity\TradeMate\Cart\Manager();
+        new \WpIntegrity\TradeMate\Product\Manager();
     }
 }
