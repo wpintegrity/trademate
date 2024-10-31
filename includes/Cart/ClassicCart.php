@@ -6,7 +6,7 @@ use WpIntegrity\TradeMate\Helper;
 /**
  * Cart functions Manager Class.
  *
- * Handles cart-related functionalities for StoreKit.
+ * Handles cart-related functionalities for TradeMate.
  *
  * @since 1.0.0
  */

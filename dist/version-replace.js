@@ -18,7 +18,7 @@ const versionReplace = async () => {
 
         const options = {
             files: pluginFiles,
-            from: /STOREKIT_SINCE/g,
+            from: /TRADEMATE_SINCE/g,
             to: version,
         };
 
