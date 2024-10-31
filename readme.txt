@@ -32,11 +32,6 @@ Enhance your WooCommerce store with TradeMate, the ultimate toolkit for optimizi
 = Contribute =
 This may have bugs and lack of many features. If you would like to submit any bug/enhancement/feature request, use this [link](https://github.com/wpintegrity/feedback/issues/new/choose).
 
-== Frequently Asked Questions ==
-
-**Q: Can I use TradeMate without WooCommerce?**
-A: As TradeMate extends WooCommerce features, you must need WooCommerce.
-
 == Installation ==
 
 This section describes how to install the plugin and get it working.
@@ -55,7 +50,7 @@ e.g.
 
 
 == Changelog ==
-= Version 1.0.0 - Oct 30, 2024 =
+= Version 1.0.0 - Nov 02, 2024 =
 - **New:** [WooCommerce] New Customer Registration Email for Admin
 - **New:** [WooCommerce] Empty/Clear Cart button to clear the entire cart by one click
 - **New:** [WooCommerce] Default Product Stock
