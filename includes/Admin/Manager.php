@@ -4,7 +4,7 @@ namespace WpIntegrity\TradeMate\Admin;
 /**
  * Admin Manager Class
  * 
- * This class is responsible for initializing the admin settings for the StoreKit plugin.
+ * This class is responsible for initializing the admin settings for the TradeMate plugin.
  * 
  * @since 1.0.0
  */

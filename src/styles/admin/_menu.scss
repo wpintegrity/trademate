@@ -1,27 +1,127 @@
 .settings-menu {
-    .layout-menu {
-        min-height: 50vh;
+    @media (max-width: 768px) {
+        width: 100%;
         padding: 0;
+        margin-bottom: 10px;
+    }
+}
+.custom-menu {
+    display: flex;
+    flex-direction: column;
 
-        .active-menu-item {
-            .p-menuitem-content {
-                background: var(--primary-color);
-                border-radius: 6px;
+    // Minimum height only applies on desktop
+    @media (min-width: 769px) {
+        min-height: 300px;
+        background-color: #fff;
+        border-radius: 5px;
 
-                .p-menuitem-link {
-                    box-shadow: none;
+        .menu-toggle {
+            display: none;
+        }
+
+        .close-button {
+            display: none;
+        }
+    }
+
+    .menu-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .menu-item {
+            padding: 16px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+
+            i {
+                margin-right: 5px;
+                font-size: 20px;
+            }
+
+            &.active-menu-item {
+                font-weight: bold;
+                color: #fff;
+                background-color: var(--primary-color);
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: var(--primary-400);
                 }
             }
-            
-            .p-menuitem-icon, .p-menuitem-text {
-                color: var(--primary-color-text);
+
+            &:hover {
+                background-color: #f0f0f0;
+                border-radius: 5px;
             }
         }
-        .p-menuitem-icon {
-            font-size: 18px;
+    }
+
+    // Flyout menu styling for tablet and mobile
+    @media (max-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        border-radius: 6px;
+
+        .menu-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            color: #fff;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
         }
-        .p-menuitem-text {
-            font-size: 18px;
+
+        .menu-list {
+            display: none; // Hidden by default
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #333;
+            justify-content: center;
+
+            .menu-item {
+                padding: 15px;
+                color: #fff;
+                width: 100%;
+                justify-content: center;
+
+                &:hover {
+                    background-color: #444;
+                }
+
+                &.active-menu-item {
+                    background-color: #0056b3;
+                }
+            }
+
+            .close-button {
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                color: #fff;
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+
+        // Show the flyout menu when open
+        &.open .menu-list {
+            display: flex;
+            z-index: 99999;
         }
     }
 }

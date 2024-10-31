@@ -1,5 +1,5 @@
 import React from 'react';
-import Settings from './pages/Settings';
+import Settings from './screens/Settings';
 
 const TradeMateAdmin = () => {
     return (

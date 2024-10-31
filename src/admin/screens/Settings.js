@@ -5,8 +5,8 @@ import 'primereact/resources/primereact.min.css';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
 
-import MenuBar from '../layout/MenuBar';
-import Content from '../layout/Content';
+import MenuBar from '../containers/MenuBar';
+import Content from '../containers/Content';
 
 // Utility function to retrieve the last active menu item from localStorage
 const getInitialActiveMenuItem = (settingsSections) => {

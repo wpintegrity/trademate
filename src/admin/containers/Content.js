@@ -3,6 +3,7 @@ import { Panel } from 'primereact/panel';
 import { Button } from 'primereact/button';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import { Toast } from 'primereact/toast';
+import { __ } from '@wordpress/i18n';
 
 import Switcher from '../components/Switcher';
 import Number from '../components/Number';
@@ -94,7 +95,10 @@ const Content = ({ sections, fields, activeMenuItem }) => {
                     ))}
 
                     <div className="flex justify-content-end">
-                        <Button label="Submit" onClick={() => handleSubmit(activeMenuItem, switchValues, inputValues, selectValues)} />
+                        <Button 
+                            label={ __( 'Submit', 'trademate' ) } 
+                            onClick={() => handleSubmit(activeMenuItem, switchValues, inputValues, selectValues)} 
+                        />
                     </div>
                 </>
             )}

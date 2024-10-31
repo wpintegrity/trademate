@@ -1,4 +1,9 @@
 .settings-container {
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 0;
+    }
+    
     .p-panel-content {
         .field-wrapper:not(:last-child) {
             border-bottom: 1px solid var(--surface-200);
@@ -27,6 +32,33 @@
             width: 5rem;
             margin: 0;
             border-radius: 0;
+        }
+    }
+
+    @media (max-width: 576px) {
+        label {
+            font-size: 14px;
+        }
+        .text-sm {
+            font-size: 12px !important;
+        }
+        .pi {
+            font-size: 10px;
+        }
+        .p-selectbutton {
+            display: flex;
+
+            .p-button {
+                padding: 10px;
+            }
+        }
+        .p-button-icon-only {
+            width: 2rem;
+        }
+        .p-inputnumber {
+            .p-inputnumber-input {
+                width: 3rem;
+            }
         }
     }
 }

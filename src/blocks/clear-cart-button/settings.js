@@ -1,0 +1,31 @@
+import { __ } from '@wordpress/i18n';
+
+export default {
+    apiVersion: 3,
+    title: __('Clear Cart Button', 'trademate'),
+    icon: 'cart',
+    category: 'woocommerce',
+    parent: ["woocommerce/cart-totals-block"],
+    attributes: {
+        label: { type: 'string', default: __('Clear Cart', 'trademate') },
+        width: { type: 'string', default: '100%' },
+        backgroundColor: { type: 'string', default: '#cf2e2e' },
+        textColor: { type: 'string', default: '#ffffff' },
+        padding: { type: 'number', default: 0 },
+        paddingTop: { type: 'number', default: 10 },
+        paddingRight: { type: 'number', default: 10 },
+        paddingBottom: { type: 'number', default: 10 },
+        paddingLeft: { type: 'number', default: 10 },
+        margin: { type: 'number', default: 0 },
+        marginTop: { type: 'number', default: 10 },
+        marginRight: { type: 'number', default: 10 },
+        marginBottom: { type: 'number', default: 10 },
+        marginLeft: { type: 'number', default: 10 },
+        fontSize: { type: 'number', default: 16 },
+        borderRadius: { type: 'number', default: 0 },
+        borderRadiusTopLeft: { type: 'number', default: 5 },
+        borderRadiusTopRight: { type: 'number', default: 5 },
+        borderRadiusBottomRight: { type: 'number', default: 5 },
+        borderRadiusBottomLeft: { type: 'number', default: 5 },
+    },
+};

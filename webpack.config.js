@@ -4,7 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
 const entryPoint = {
-    admin   : './src/admin/index.js'
+    admin                        : './src/admin/index.js',
+    'frontend/clear-cart-handler': './src/frontend/clear-cart-handler.js',
+    'blocks/clear-cart-block'    : './src/blocks/clear-cart-button/index.js'
 }
 
 const trademateConfig = {
@@ -50,6 +52,13 @@ const trademateConfig = {
                 }
             }
         ]
+    },
+    externals: {
+        '@wordpress/blocks': ['wp', 'blocks'],
+        '@wordpress/i18n': ['wp', 'i18n'],
+        '@wordpress/components': ['wp', 'components'],
+        '@wordpress/element': ['wp', 'element'],
+        '@wordpress/block-editor': ['wp', 'blockEditor'],
     },
     plugins: [
         new MiniCssExtractPlugin({

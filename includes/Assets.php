@@ -94,6 +94,11 @@ class Assets {
                 'src'       => TRADEMATE_ASSETS . '/js/frontend' . $suffix . '.js',
                 'deps'      => [ 'jquery' ],
                 'in_footer' => true
+            ],
+            'trademate-clear-cart' => [
+                'src'       => TRADEMATE_ASSETS . '/js/frontend/clear-cart-handler' . $suffix . '.js',
+                'deps'      => [ 'jquery' ],
+                'in_footer' => true
             ]
         ];
 

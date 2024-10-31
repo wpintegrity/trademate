@@ -36,7 +36,7 @@ final class TradeMate {
      *
      * @var array
      */
-    private $contatiner = [];
+    private $container = [];
 
     /**
      * Constructor class that contains all essential hooks/actions
@@ -48,9 +48,6 @@ final class TradeMate {
         // Hooks for initializing the plugin
         add_action( 'before_woocommerce_init', [ $this, 'declare_woocommerce_hpos_compatibility' ] );
         add_action( 'woocommerce_loaded', [ $this, 'init_plugin' ] );
-
-        // Hook to handle scenarios when WooCommerce is not loaded
-        add_action( 'plugins_loaded', [ $this, 'woocommerce_not_loaded' ], 11 );
     }
 
     /**
@@ -114,11 +111,13 @@ final class TradeMate {
      * @return void
      */
     public function init_classes() {
-        $this->contatiner[ 'assets' ] = new \WpIntegrity\TradeMate\Assets();
+        $this->container[ 'assets' ] = new \WpIntegrity\TradeMate\Assets();
 
         if( is_admin() ) {
-            $this->contatiner[ 'admin_settings' ] = new \WpIntegrity\TradeMate\Admin\Manager();
+            $this->container[ 'admin_settings' ] = new \WpIntegrity\TradeMate\Admin\Manager();
         }
+
+        $this->container['features'] = new \WpIntegrity\TradeMate\Features();
     }
     
     /**
@@ -165,19 +164,6 @@ final class TradeMate {
             \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
         }
     }
-
-    /**
-     * Handles scenarios when WooCommerce is not active.
-     *
-     * @since 1.0.0
-     * @return void
-     */
-    public function woocommerce_not_loaded() {
-        if ( did_action( 'woocommerce_loaded' ) || ! is_admin() ) {
-            return;
-        }
-    }
-
 }
 
 /**
