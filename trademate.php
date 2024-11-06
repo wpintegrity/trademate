@@ -2,6 +2,7 @@
 /**
  * Plugin Name:       TradeMate
  * Plugin URI:        https://wordpress.org/plugins/trademate
+ * Requires Plugins:     woocommerce
  * Description:       An Essential Plugin for WooCommerce to Extend its functionalities
  * Version:           1.0.0
  * Requires at least: 5.2

@@ -8,7 +8,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-10-31T18:38:40+00:00\n"
+"POT-Creation-Date: 2024-11-06T18:49:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: trademate\n"
@@ -42,7 +42,7 @@ msgid "https://wpintegrity.com/"
 msgstr ""
 
 #: includes/Admin/Settings.php:59
-msgid "General"
+msgid "Product"
 msgstr ""
 
 #: includes/Admin/Settings.php:64
@@ -50,52 +50,52 @@ msgid "Cart"
 msgstr ""
 
 #: includes/Admin/Settings.php:69
-msgid "Product"
+msgid "Emails"
 msgstr ""
 
 #: includes/Admin/Settings.php:88
-msgid "New Customer Registration Email"
+msgid "Default Product Stock"
 msgstr ""
 
 #: includes/Admin/Settings.php:89
-msgid "Get new customers registration email to the admin email"
+msgid "Insert default product stock amount"
+msgstr ""
+
+#: includes/Admin/Settings.php:95
+msgid "Product Individual Sale"
+msgstr ""
+
+#: includes/Admin/Settings.php:96
+msgid "Allow only one item to be bought in a single order"
 msgstr ""
 
 #: includes/Admin/Settings.php:98
+msgid "Choose one..."
+msgstr ""
+
+#: includes/Admin/Settings.php:103
+msgid "No"
+msgstr ""
+
+#: includes/Admin/Settings.php:107
+msgid "Yes"
+msgstr ""
+
+#: includes/Admin/Settings.php:116
 #: src/blocks/clear-cart-button/settings.js:5
 msgid "Clear Cart Button"
 msgstr ""
 
-#: includes/Admin/Settings.php:99
+#: includes/Admin/Settings.php:117
 msgid "Add a clear cart button on the cart page to empty the entire cart with one click"
 msgstr ""
 
-#: includes/Admin/Settings.php:108
-msgid "Default Product Stock"
-msgstr ""
-
-#: includes/Admin/Settings.php:109
-msgid "Insert default product stock amount"
-msgstr ""
-
-#: includes/Admin/Settings.php:115
-msgid "Product Individual Sale"
-msgstr ""
-
-#: includes/Admin/Settings.php:116
-msgid "Allow only one item to be bought in a single order"
-msgstr ""
-
-#: includes/Admin/Settings.php:118
-msgid "Choose one..."
-msgstr ""
-
-#: includes/Admin/Settings.php:123
-msgid "No"
+#: includes/Admin/Settings.php:126
+msgid "New Customer Registration Email"
 msgstr ""
 
 #: includes/Admin/Settings.php:127
-msgid "Yes"
+msgid "Get new customers registration email to the admin email"
 msgstr ""
 
 #: includes/Admin/Settings.php:151
@@ -123,11 +123,11 @@ msgstr ""
 msgid "Settings saved successfully"
 msgstr ""
 
-#: includes/Cart/BlockCart.php:97
+#: includes/Cart/BlockCart.php:99
 msgid "Cart has been cleared."
 msgstr ""
 
-#: includes/Cart/BlockCart.php:99
+#: includes/Cart/BlockCart.php:101
 msgid "Could not clear cart."
 msgstr ""
 
@@ -135,16 +135,100 @@ msgstr ""
 msgid "Clear cart"
 msgstr ""
 
+#: includes/Emails/NewCustomer.php:33
+msgid "New Customer Registration"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:34
+msgid "This email will be sent to chosen recipient(s) when a new customer registers on the site."
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:61
+msgid "[{site_title}] A new customer has been registered"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:71
+msgid "New Customer Registered - {username}"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:86
+msgid "Hello there,"
+msgstr ""
+
+#. Translators: %s is the site title
+#: includes/Emails/NewCustomer.php:91
+msgid "A new customer has been registered on your %s store."
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:97
+msgid "Customer Details:"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:104
+msgid "Customer:"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:113
+msgid "Email:"
+msgstr ""
+
+#. Translators: %s is the user edit URL
+#: includes/Emails/NewCustomer.php:123
+msgid "Click here to <a href=\"%s\">edit customer details</a>."
+msgstr ""
+
+#. Translators: %s: list of available placeholder tags
+#: includes/Emails/NewCustomer.php:222
+msgid "Available placeholders: %s"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:228
+msgid "Enable/Disable"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:230
+msgid "Enable this email notification"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:234
+msgid "Recipient(s)"
+msgstr ""
+
+#. translators: %s: admin email
+#: includes/Emails/NewCustomer.php:237
+msgid "Enter recipients (comma separated) for this email. Defaults to %s."
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:243
+msgid "Subject"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:249
+msgid "Email heading"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:255
+msgid "Message"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:262
+msgid "Email type"
+msgstr ""
+
+#: includes/Emails/NewCustomer.php:264
+msgid "Choose which format of email to send."
+msgstr ""
+
 #. Translators: %s is the HTML code element representing the template name.
-#: includes/Helper.php:66
+#: includes/Helper.php:69
 msgid "%s does not exist."
 msgstr ""
 
-#: trademate.php:150
+#: trademate.php:149
 msgid "View TradeMate settings"
 msgstr ""
 
-#: trademate.php:150
+#: trademate.php:149
 msgid "Settings"
 msgstr ""
 
