@@ -74,9 +74,12 @@ class Manager {
         ?>
         <tr valign="top">
             <th scope="row" class="titledesc">
-                <label for="<?php echo esc_attr( $key ); ?>"><?php echo wp_kses_post( $data['title'] ); ?> <?php echo $wc_settings->get_tooltip_html( $data ); ?></label>
+                <label for="<?php echo esc_attr( $key ); ?>">
+                    <?php echo wp_kses_post( $data['title'] ); ?>
+                    <?php echo wp_kses_post( $wc_settings->get_tooltip_html( $data ) ); ?>
+                </label>
             </th>
-            <td class="forminp forminp-<?php echo sanitize_title( $data['type'] ); ?>">
+            <td class="forminp forminp-<?php echo esc_attr( sanitize_title( $data['type'] ) ); ?>">
                 <fieldset>
                     <?php
                         wp_editor(
@@ -186,6 +189,7 @@ class Manager {
      * @return void
      */
     public function trademate_email_settings_js() {
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended
         if ( 
             isset( $_GET['tab'], $_GET['section'] )
             &&$_GET['tab'] === 'email' 
@@ -201,5 +205,6 @@ class Manager {
                 });
             </script>
         <?php }
+        // phpcs:enable
     }
 }

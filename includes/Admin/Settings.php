@@ -202,7 +202,7 @@ class Settings {
 
         // Get and sanitize the submitted data
         $section = sanitize_text_field( wp_unslash( $_POST['section'] ) );
-        $settings_data = json_decode( wp_unslash( $_POST['settingsData'] ), true );
+        $settings_data = json_decode( sanitize_text_field( wp_unslash( $_POST['settingsData'] ) ), true );
 
         if ( is_null( $settings_data ) ) {
             wp_send_json_error( __( 'Invalid settings data format', 'trademate' ) );

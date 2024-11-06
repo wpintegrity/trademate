@@ -87,6 +87,7 @@ class NewCustomer extends WC_Email {
             <br>
             <?php 
                 echo wp_kses_post( sprintf(
+                    // Translators: %s is the site title
                     __( 'A new customer has been registered on your %s store.', 'trademate' ),
                     '{site_title}'
                 ) );
@@ -118,6 +119,7 @@ class NewCustomer extends WC_Email {
         <p>
             <?php
                 echo wp_kses_post( sprintf(
+                    // Translators: %s is the user edit URL
                     __( 'Click here to <a href="%s">edit customer details</a>.', 'trademate' ),
                     '{user_edit_url}'
                 ) );

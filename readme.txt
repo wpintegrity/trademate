@@ -3,7 +3,7 @@ Contributors: wpintegrity, tanjiralmamun
 Donate link: 
 Tags: WooCommerce, Booster for WooCommerce, WooCommerce Extension, WooCommerce toolkit, Extend WooCommerce
 Requires at least: 6.4
-Tested up to: 6.5
+Tested up to: 6.6
 Stable tag: 1.0.0
 WC requires at least: 6.0
 WC tested up to: 9.0.0

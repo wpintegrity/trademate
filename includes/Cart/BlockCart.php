@@ -87,11 +87,13 @@ class BlockCart {
      * @return void
      */
     public function clear_cart_handler() {
-        // Verify nonce for security
-        if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( $_POST['nonce'], 'tm_clear_cart_nonce' ) ) {
+        // Check and sanitize the nonce
+        if ( ! isset( $_POST['nonce'] ) 
+        || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['nonce'] ) ), 'tm_clear_cart_nonce' ) ) 
+        {
             wp_send_json_error( 'Invalid nonce' );
         }
-
+    
         if ( WC()->cart ) {
             WC()->cart->empty_cart();
             wp_send_json_success( __( 'Cart has been cleared.', 'trademate' ) );

@@ -13,6 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 do_action( 'woocommerce_email_header', $email_heading, $email );
 
-echo $email->get_message();
+echo wp_kses_post( $email->get_message() );
 
 do_action( 'woocommerce_email_footer', $email );
