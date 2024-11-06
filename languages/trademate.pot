@@ -1,0 +1,261 @@
+# Copyright (c) 2024 WPIntegrity. All Rights Reserved.
+msgid ""
+msgstr ""
+"Project-Id-Version: TradeMate 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/wpintegrity/feedback/issues/new/choose\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-10-31T18:38:40+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: trademate\n"
+
+#. Plugin Name of the plugin
+#: trademate.php
+#: includes/Admin/Menu.php:34
+#: includes/Admin/Menu.php:35
+#: includes/Admin/Menu.php:106
+msgid "TradeMate"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: trademate.php
+msgid "https://wordpress.org/plugins/trademate"
+msgstr ""
+
+#. Description of the plugin
+#: trademate.php
+msgid "An Essential Plugin for WooCommerce to Extend its functionalities"
+msgstr ""
+
+#. Author of the plugin
+#: trademate.php
+msgid "WPIntegrity"
+msgstr ""
+
+#. Author URI of the plugin
+#: trademate.php
+msgid "https://wpintegrity.com/"
+msgstr ""
+
+#: includes/Admin/Settings.php:59
+msgid "General"
+msgstr ""
+
+#: includes/Admin/Settings.php:64
+msgid "Cart"
+msgstr ""
+
+#: includes/Admin/Settings.php:69
+msgid "Product"
+msgstr ""
+
+#: includes/Admin/Settings.php:88
+msgid "New Customer Registration Email"
+msgstr ""
+
+#: includes/Admin/Settings.php:89
+msgid "Get new customers registration email to the admin email"
+msgstr ""
+
+#: includes/Admin/Settings.php:98
+#: src/blocks/clear-cart-button/settings.js:5
+msgid "Clear Cart Button"
+msgstr ""
+
+#: includes/Admin/Settings.php:99
+msgid "Add a clear cart button on the cart page to empty the entire cart with one click"
+msgstr ""
+
+#: includes/Admin/Settings.php:108
+msgid "Default Product Stock"
+msgstr ""
+
+#: includes/Admin/Settings.php:109
+msgid "Insert default product stock amount"
+msgstr ""
+
+#: includes/Admin/Settings.php:115
+msgid "Product Individual Sale"
+msgstr ""
+
+#: includes/Admin/Settings.php:116
+msgid "Allow only one item to be bought in a single order"
+msgstr ""
+
+#: includes/Admin/Settings.php:118
+msgid "Choose one..."
+msgstr ""
+
+#: includes/Admin/Settings.php:123
+msgid "No"
+msgstr ""
+
+#: includes/Admin/Settings.php:127
+msgid "Yes"
+msgstr ""
+
+#: includes/Admin/Settings.php:151
+msgid "You have no permission to get settings value"
+msgstr ""
+
+#: includes/Admin/Settings.php:155
+#: includes/Admin/Settings.php:193
+msgid "Invalid nonce"
+msgstr ""
+
+#: includes/Admin/Settings.php:187
+msgid "You do not have permission to save these settings"
+msgstr ""
+
+#: includes/Admin/Settings.php:199
+msgid "Missing section or settings data"
+msgstr ""
+
+#: includes/Admin/Settings.php:208
+msgid "Invalid settings data format"
+msgstr ""
+
+#: includes/Admin/Settings.php:220
+msgid "Settings saved successfully"
+msgstr ""
+
+#: includes/Cart/BlockCart.php:97
+msgid "Cart has been cleared."
+msgstr ""
+
+#: includes/Cart/BlockCart.php:99
+msgid "Could not clear cart."
+msgstr ""
+
+#: includes/Cart/ClassicCart.php:37
+msgid "Clear cart"
+msgstr ""
+
+#. Translators: %s is the HTML code element representing the template name.
+#: includes/Helper.php:66
+msgid "%s does not exist."
+msgstr ""
+
+#: trademate.php:150
+msgid "View TradeMate settings"
+msgstr ""
+
+#: trademate.php:150
+msgid "Settings"
+msgstr ""
+
+#: src/admin/containers/Content.js:99
+msgid "Submit"
+msgstr ""
+
+#: src/admin/containers/MenuBar.js:11
+msgid "Menu"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:36
+msgid "Button Settings"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:38
+msgid "Button Label"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:43
+msgid "Button Width"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:58
+msgid "Font Size"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:67
+msgid "Padding Settings"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:75
+msgid "Padding Top"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:76
+msgid "Padding Right"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:77
+msgid "Padding Bottom"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:78
+msgid "Padding Left"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:81
+msgid "Padding"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:85
+msgid "Margin Settings"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:93
+msgid "Margin Top"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:94
+msgid "Margin Right"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:95
+msgid "Margin Bottom"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:96
+msgid "Margin Left"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:99
+msgid "Margin"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:103
+msgid "Border Radius Settings"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:111
+msgid "Top Left Radius"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:112
+msgid "Top Right Radius"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:113
+msgid "Bottom Right Radius"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:114
+msgid "Bottom Left Radius"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:117
+msgid "Border Radius"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:122
+msgid "Color Settings"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:128
+msgid "Background Color"
+msgstr ""
+
+#: src/blocks/clear-cart-button/edit.js:133
+msgid "Text Color"
+msgstr ""
+
+#: src/blocks/clear-cart-button/settings.js:10
+msgid "Clear Cart"
+msgstr ""

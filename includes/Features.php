@@ -20,5 +20,6 @@ class Features {
         // Initialize features classes
         new \WpIntegrity\TradeMate\Cart\Manager();
         new \WpIntegrity\TradeMate\Product\Manager();
+        new \WpIntegrity\TradeMate\Emails\Manager();
     }
 }
