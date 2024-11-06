@@ -55,9 +55,9 @@ class Settings {
     public function get_settings_sections() {
         $sections = [
             [
-                'id'    => 'trademate_general',
-                'title' => __( 'General', 'trademate' ),
-                'icon'  => 'pi-cog'
+                'id'    => 'trademate_product',
+                'title' => __( 'Product', 'trademate' ),
+                'icon'  => 'pi-box'
             ],
             [
                 'id'    => 'trademate_cart',
@@ -65,9 +65,9 @@ class Settings {
                 'icon'  => 'pi-shopping-cart'
             ],
             [
-                'id'    => 'trademate_product',
-                'title' => __( 'Product', 'trademate' ),
-                'icon'  => 'pi-box'
+                'id'    => 'trademate_emails',
+                'title' => __( 'Emails', 'trademate' ),
+                'icon'  => 'pi-envelope'
             ],
         ];
 
@@ -82,26 +82,6 @@ class Settings {
      * @return array settings fields
      */
     public function get_settings_fields() {
-        $general_options = [
-            'new_customer_registration_email' => [
-                'name'        => 'new_customer_registration_email',
-                'label'       => __( 'New Customer Registration Email', 'trademate' ),
-                'description' => __( 'Get new customers registration email to the admin email', 'trademate' ),
-                'type'        => 'switch',
-                'default'     => 'off'
-            ],
-        ];
-
-        $cart_options = [
-            'clear_cart_button' => [
-                'name'        => 'clear_cart_button',
-                'label'       => __( 'Clear Cart Button', 'trademate' ),
-                'description' => __( 'Add a clear cart button on the cart page to empty the entire cart with one click', 'trademate' ),
-                'type'        => 'switch',
-                'default'     => 'off'
-            ]
-        ];
-        
         $product_options = [
             'default_product_stock' => [
                 'name'        => 'default_product_stock',
@@ -130,10 +110,30 @@ class Settings {
             ],
         ];
 
+        $cart_options = [
+            'clear_cart_button' => [
+                'name'        => 'clear_cart_button',
+                'label'       => __( 'Clear Cart Button', 'trademate' ),
+                'description' => __( 'Add a clear cart button on the cart page to empty the entire cart with one click', 'trademate' ),
+                'type'        => 'switch',
+                'default'     => 'off'
+            ]
+        ];
+
+        $email_options = [
+            'new_customer_registration_email' => [
+                'name'        => 'new_customer_registration_email',
+                'label'       => __( 'New Customer Registration Email', 'trademate' ),
+                'description' => __( 'Get new customers registration email to the admin email', 'trademate' ),
+                'type'        => 'switch',
+                'default'     => 'off'
+            ],
+        ];
+
         $settings_fields = [
-            'trademate_general' => apply_filters( 'trademate_general_options', $general_options ),
-            'trademate_cart'    => apply_filters( 'trademate_cart_options', $cart_options ),
             'trademate_product' => apply_filters( 'trademate_product_options', $product_options ),
+            'trademate_cart'    => apply_filters( 'trademate_cart_options', $cart_options ),
+            'trademate_emails'  => apply_filters( 'trademate_email_options', $email_options ),
         ];
 
         return apply_filters( 'trademate_settings_fields', $settings_fields );
@@ -202,7 +202,7 @@ class Settings {
 
         // Get and sanitize the submitted data
         $section = sanitize_text_field( wp_unslash( $_POST['section'] ) );
-        $settings_data = json_decode( wp_unslash( $_POST['settingsData'] ), true );
+        $settings_data = json_decode( sanitize_text_field( wp_unslash( $_POST['settingsData'] ) ), true );
 
         if ( is_null( $settings_data ) ) {
             wp_send_json_error( __( 'Invalid settings data format', 'trademate' ) );

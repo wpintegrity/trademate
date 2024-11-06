@@ -62,8 +62,15 @@ class Helper {
         if ( file_exists( $template ) ) {
             include $template;
         } else {
-            // Translators: %s is the HTML code element representing the template name.
-            _doing_it_wrong( __FUNCTION__, sprintf( __( '%s does not exist.', 'trademate' ), '<code>' . $template . '</code>' ), '1.0' );
+            _doing_it_wrong(
+                __FUNCTION__,
+                sprintf(
+                    // Translators: %s is the HTML code element representing the template name.
+                    esc_html__( '%s does not exist.', 'trademate' ),
+                    wp_kses_post( '<code>' . $template . '</code>' )
+                ),
+                '1.0'
+            );
         }
     }
 }
