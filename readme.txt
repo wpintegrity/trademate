@@ -50,7 +50,7 @@ e.g.
 
 
 == Changelog ==
-= Version 1.0.0 - Nov 02, 2024 =
+= Version 1.0.0 - Nov 07, 2024 =
 - **New:** [WooCommerce] New Customer Registration Email for Admin
 - **New:** [WooCommerce] Empty/Clear Cart button to clear the entire cart by one click
 - **New:** [WooCommerce] Default Product Stock

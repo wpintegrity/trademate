@@ -34,9 +34,11 @@ class BlockCart {
      * @return void
      */
     public function register_scripts() {
+        $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
         wp_register_script(
             'trademate-clear-cart-block',
-            TRADEMATE_ASSETS . '/js/blocks/clear-cart-block.js',
+            TRADEMATE_ASSETS . '/js/blocks/clear-cart-block' . $suffix . '.js',
             [ 'wp-blocks', 'wp-i18n', 'wp-components', 'wp-block-editor', 'wp-element' ],
             TRADEMATE_VERSION,
             true
