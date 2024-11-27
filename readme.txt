@@ -29,6 +29,13 @@ Below is list of available feature of the TradeMate plugin:
 
 Enhance your WooCommerce store with TradeMate, the ultimate toolkit for optimizing your eCommerce experience.
 
+== Source Code ==
+The uncompressed and human-readable source code for the JavaScript and CSS files used in this plugin can be found in our GitHub repository:
+
+https://github.com/wpintegrity/trademate
+
+You can review, study, and fork the source code from the repository. Instructions on how to build the compressed files are also provided in the repository's README.
+
 = Contribute =
 This may have bugs and lack of many features. If you would like to submit any bug/enhancement/feature request, use this [link](https://github.com/wpintegrity/feedback/issues/new/choose).
 
