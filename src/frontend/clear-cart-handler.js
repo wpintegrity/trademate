@@ -1,21 +1,21 @@
-import Swal from 'sweetalert2';
+import swal from 'sweetalert';
+import '../styles/frontend/clear-cart-popup.scss';
 
 jQuery(document).ready(function ($) {
     $(document).on('click', '.clear-cart-button', function (e) {
         e.preventDefault();
 
         // Use SweetAlert for confirmation
-        Swal.fire({
+        swal({
             title: 'Are you sure?',
             text: "Do you really want to clear the cart?",
             icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, clear it!',
-            cancelButtonText: 'Cancel'
+            buttons: {
+                confirm: 'Yes, clear it!',
+                cancel: 'Cancel'
+            }
         }).then((result) => {
-            if (result.isConfirmed) {
+            if (result) {
                 // Proceed with clearing the cart
                 $.ajax({
                     url: tm_clear_cart.ajax_url,
@@ -25,15 +25,14 @@ jQuery(document).ready(function ($) {
                         nonce: tm_clear_cart.nonce,
                     },
                     success: function (response) {
-                        console.log(response);
                         if (response.success) {
                             location.reload();
                         } else {
-                            Swal.fire('Error', response.data, 'error');
+                            swal('Error', response.data, 'error');
                         }
                     },
                     error: function () {
-                        Swal.fire('Error', 'Error clearing cart.', 'error');
+                        swal('Error', 'Error clearing cart.', 'error');
                     }
                 });
             }

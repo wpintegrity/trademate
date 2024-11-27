@@ -1,7 +1,6 @@
 <?php
 namespace WpIntegrity\TradeMate\Emails;
 
-use WP_User;
 use WpIntegrity\TradeMate\Helper;
 
 /**
@@ -20,14 +19,15 @@ class Manager {
         $new_customer_registration_email = Helper::get_option( 'new_customer_registration_email', 'trademate_emails' );
 
         if ( $new_customer_registration_email === true ) {
-            add_filter( 'woocommerce_email_classes', [ $this, 'register_trademate_emails_classes' ] );
+            add_filter( 'woocommerce_email_classes', [ $this, 'register_emails_classes' ] );
         }
         
         add_filter( 'woocommerce_generate_trademate_email_wysiwyg_html', [ $this, 'render_email_wysiwyg_html' ], 10, 4 );
-        add_filter( 'woocommerce_email_format_string', [ $this, 'trademate_woocommerce_email_format_string' ], 10, 2 );
+        add_filter( 'woocommerce_email_format_string', [ $this, 'email_format_string' ], 10, 2 );
         add_filter( 'woocommerce_template_directory', [ $this, 'set_email_template_directory' ], 10, 2 );
         add_filter( 'woocommerce_email_actions', [ $this, 'register_email_actions' ] );
-        add_action( 'admin_footer', [ $this, 'trademate_email_settings_js' ] );
+        add_action( 'admin_print_styles', [ $this, 'email_wysiwyg_style' ] );
+        add_action( 'admin_print_footer_scripts', [ $this, 'email_settings_js' ] );
     }
 
     /**
@@ -38,9 +38,7 @@ class Manager {
      * @param array $email_classes Existing WooCommerce email classes.
      * @return array Modified WooCommerce email classes.
      */
-    public function register_trademate_emails_classes( $email_classes ) {
-        require_once TRADEMATE_INC . '/Emails/NewCustomer.php';
-
+    public function register_emails_classes( $email_classes ) {
         $email_classes['TradeMate_New_Customer'] = new NewCustomer();
 
         return $email_classes;
@@ -88,8 +86,7 @@ class Manager {
                             [
                                 'wpautop'       => false,
                                 'textarea_name' => 'woocommerce_' . $wc_settings->id . '_' . $key,
-                                'textarea_rows' => 12,
-                                'editor_css'    => '<style type="text/css">div#wp-' . $wc_settings->id . '-wrap{width: 600px;}</style>',
+                                'textarea_rows' => 12
                             ]
                         );
                     ?>
@@ -113,7 +110,7 @@ class Manager {
      * @param Object $wc_email
      * @return array
      */
-    public function trademate_woocommerce_email_format_string( $find_replace, $wc_email ) {
+    public function email_format_string( $find_replace, $wc_email ) {
         $trademate_email_ids = [
             'trademate_new_customer_registration'
         ];
@@ -183,28 +180,49 @@ class Manager {
         return $actions;
     }
 
-    /**
-     * Remove disable props of WPEdtior on Change
-     *
-     * @return void
-     */
-    public function trademate_email_settings_js() {
+    public function email_wysiwyg_style() {
         // phpcs:disable WordPress.Security.NonceVerification.Recommended
         if ( 
             isset( $_GET['tab'], $_GET['section'] )
             &&$_GET['tab'] === 'email' 
             && $_GET['section'] === 'trademate_new_customer'
-        ) { ?>
-            <script type="text/javascript">
-                jQuery(document).ready(function($) {
-                    if (typeof tinyMCE !== 'undefined' && tinyMCE.activeEditor) {
-                        tinyMCE.activeEditor.on('change keyup', function() {
-                            $('.woocommerce-save-button').prop('disabled', false); // Enable Save button
-                        });
+        ) {
+            echo "
+                <style>
+                    .woocommerce .forminp-trademate_email_wysiwyg .wp-editor-area,
+                    .woocommerce .forminp-trademate_email_wysiwyg fieldset {
+                        width: 600px;
                     }
-                });
-            </script>
-        <?php }
+                </style>
+            ";
+        }
+        // phpcs:enable
+    }
+
+    /**
+     * Remove disable props of WPEdtior on Change
+     *
+     * @return void
+     */
+    public function email_settings_js() {
+        // phpcs:disable WordPress.Security.NonceVerification.Recommended
+        if ( 
+            isset( $_GET['tab'], $_GET['section'] )
+            &&$_GET['tab'] === 'email' 
+            && $_GET['section'] === 'trademate_new_customer'
+        ) {
+            echo "
+                <script>
+                    jQuery(document).ready(function($) {
+                        if (typeof tinyMCE !== 'undefined' && tinyMCE.activeEditor) {
+                            tinyMCE.activeEditor.on('change keyup', function() {
+                                $('.woocommerce-save-button').prop('disabled', false); // Enable Save button
+                            });
+                        }
+                    });
+                </script>
+            ";
+        }
         // phpcs:enable
     }
 }

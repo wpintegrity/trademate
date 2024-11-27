@@ -17,7 +17,7 @@ const pluginFiles = [
     'composer.json',
 ];
 
-const removeFiles = ['composer.json', 'composer.lock'];
+const removeFiles = ['composer.lock'];
 
 const allowedVendorFiles = {
     // Specify allowed files for each composer package if needed

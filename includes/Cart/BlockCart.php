@@ -38,7 +38,7 @@ class BlockCart {
 
         wp_register_script(
             'trademate-clear-cart-block',
-            TRADEMATE_ASSETS . '/js/blocks/clear-cart-block' . $suffix . '.js',
+            TRADEMATE_ASSETS . 'js/blocks/clear-cart-block' . $suffix . '.js',
             [ 'wp-blocks', 'wp-i18n', 'wp-components', 'wp-block-editor', 'wp-element' ],
             TRADEMATE_VERSION,
             true
@@ -73,6 +73,7 @@ class BlockCart {
     public function enqueue_clear_cart_script() {
         // Load only on cart page or frontend usage.
         if ( is_cart() ) {
+            wp_enqueue_style( 'trademate-clear-cart' );
             wp_enqueue_script( 'trademate-clear-cart' );
             wp_localize_script( 'trademate-clear-cart', 'tm_clear_cart', array(
                 'ajax_url' => admin_url( 'admin-ajax.php' ),

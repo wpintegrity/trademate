@@ -67,10 +67,13 @@ class Assets {
 
         $styles = [
             'trademate-admin'    => [
-                'src' => TRADEMATE_ASSETS . '/css/admin' . $suffix . '.css'
+                'src' => TRADEMATE_ASSETS . 'css/admin' . $suffix . '.css'
             ],
             'trademate-frontend' => [
-                'src' => TRADEMATE_ASSETS . '/css/frontend' . $suffix . '.css'
+                'src' => TRADEMATE_ASSETS . 'css/frontend' . $suffix . '.css'
+            ],
+            'trademate-clear-cart' => [
+                'src' => TRADEMATE_ASSETS . 'css/frontend/clear-cart-handler' . $suffix . '.css'
             ]
         ];
 
@@ -87,16 +90,16 @@ class Assets {
 
         $scripts = [
             'trademate-admin'    => [
-                'src'       => TRADEMATE_ASSETS . '/js/admin' . $suffix . '.js',
+                'src'       => TRADEMATE_ASSETS . 'js/admin' . $suffix . '.js',
                 'in_footer' => true
             ],
             'trademate-frontend' => [
-                'src'       => TRADEMATE_ASSETS . '/js/frontend' . $suffix . '.js',
+                'src'       => TRADEMATE_ASSETS . 'js/frontend' . $suffix . '.js',
                 'deps'      => [ 'jquery' ],
                 'in_footer' => true
             ],
             'trademate-clear-cart' => [
-                'src'       => TRADEMATE_ASSETS . '/js/frontend/clear-cart-handler' . $suffix . '.js',
+                'src'       => TRADEMATE_ASSETS . 'js/frontend/clear-cart-handler' . $suffix . '.js',
                 'deps'      => [ 'jquery' ],
                 'in_footer' => true
             ]

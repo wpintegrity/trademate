@@ -1,0 +1,22 @@
+.swal-footer {
+    display: flex;
+    justify-content: center;
+
+    .swal-button--confirm {
+        background-color: #3085d6;
+
+        &:hover {
+            color: #fff;
+            background-color: #2870b4;
+        }
+    }
+
+    .swal-button--cancel {
+        color: #fff;
+        background-color: #dd3333;
+
+        &:hover {
+            background-color: #bb2a2a;
+        }
+    }
+}
