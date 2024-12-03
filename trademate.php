@@ -1,14 +1,14 @@
 <?php
 /**
  * Plugin Name:       TradeMate
- * Plugin URI:        https://wpintegrity.com/trademate
+ * Plugin URI:        https://wpintegrity.com/trademate/
  * Requires Plugins:  woocommerce
- * Description:       An Essential Plugin for WooCommerce to Extend its functionalities
+ * Description:       Supercharge Your WooCommerce Store’s Capabilities
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.4
  * Author:            WPIntegrity
- * Author URI:        https://wpintegrity.com/
+ * Author URI:        https://wpintegrity.com/trademate/
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       trademate

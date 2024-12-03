@@ -11,11 +11,11 @@ Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-TradeMate enhances WooCommerce with extra features.
+TradeMate Supercharge Your WooCommerce Store’s Capabilities
 
 == Description ==
 
-TradeMate adds extra functionality to your WooCommerce store, improving your eCommerce operations and user experience.
+TradeMate enhances your store’s capabilities with advanced functionalities, empowering your e-commerce business to scale new heights and deliver an exceptional shopping experience to your customers
 
 Below is list of available feature of the TradeMate plugin:
 
