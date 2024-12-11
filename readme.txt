@@ -15,24 +15,18 @@ TradeMate Supercharge Your WooCommerce Store’s Capabilities
 
 == Description ==
 
-TradeMate enhances your store’s capabilities with advanced functionalities, empowering your e-commerce business to scale new heights and deliver an exceptional shopping experience to your customers
+**TradeMate** enhances your WooCommerce store’s capabilities with advanced functionalities, empowering your e-commerce business to scale new heights and deliver an exceptional shopping experience to your customers
 
-Below is list of available feature of the TradeMate plugin:
+Below is list of available feature of the plugin:
 
-### Features ###
-
-= Features = 
+== Features == 
 * **New Customer Registration Email for Admin:** Receive email notifications for new customer registrations.
 * **Empty/Clear Cart Button:** Allow customers to clear the entire cart with a single click.
 * **Default Product Stock:** Set default stock levels for products.
 * **Product Individual Sale:** Restrict products to individual sales by default.
 
-Enhance your WooCommerce store with TradeMate, the ultimate toolkit for optimizing your eCommerce experience.
-
 == Source Code ==
-The uncompressed and human-readable source code for the JavaScript and CSS files used in this plugin can be found in our GitHub repository:
-
-https://github.com/wpintegrity/trademate
+The uncompressed and human-readable source code for the JavaScript and CSS files used in this plugin can be found in our [GitHub repository](https://github.com/wpintegrity/trademate).
 
 You can review, study, and fork the source code from the repository. Instructions on how to build the compressed files are also provided in the repository's README.
 
@@ -43,11 +37,11 @@ This may have bugs and lack of many features. If you would like to submit any bu
 
 This section describes how to install the plugin and get it working.
 
-e.g.
+= Steps to follow =
 
-1. Extract the zip file and drop the plugin files to the **`/wp-content/plugins/`** directory, or install the plugin through the **`WordPress Dashboard > Plugins > Add New`** screen directly.
-2. Activate the plugin through the **`Plugins`** screen in WordPress
-3. Navigate to the **`TradeMate`** screen to configure the plugin
+1. Install the plugin through the **`WP Admin > Plugins > Add New`** screen directly, or extract the zip file and drop the plugin files to the **`/wp-content/plugins/`** directory. 
+2. Activate the plugin through the **`WP Admin > Plugins`** screen in WordPress
+3. Navigate to the **`WooCommerce > TradeMate`** screen to configure the plugin
 
 
 == Screenshots ==
@@ -57,7 +51,7 @@ e.g.
 
 
 == Changelog ==
-= Version 1.0.0 - Nov 07, 2024 =
+= Version 1.0.0 - Dec 10, 2024 =
 - **New:** [WooCommerce] New Customer Registration Email for Admin
 - **New:** [WooCommerce] Empty/Clear Cart button to clear the entire cart by one click
 - **New:** [WooCommerce] Default Product Stock

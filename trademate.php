@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       TradeMate
- * Plugin URI:        https://wpintegrity.com/trademate/
+ * Plugin URI:        https://wordpress.org/plugins/trademate/
  * Requires Plugins:  woocommerce
  * Description:       Supercharge Your WooCommerce Store’s Capabilities
  * Version:           1.0.0
