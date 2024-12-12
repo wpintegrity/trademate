@@ -53,7 +53,7 @@ This section describes how to install the plugin and get it working.
 == Changelog ==
 = Version 1.0.1 - Dec 20, 2024 =
 - **New:** [WooCommerce] Terms & Conditions for the Registration Form
-- **New:** [WooCommerce] Hide all other shipping methods when the Free Shipping is available
+- **New:** [WooCommerce] Hide all other shipping methods when Free Shipping is available
 
 = Version 1.0.0 - Dec 10, 2024 =
 - **New:** [WooCommerce] New Customer Registration Email for Admin
