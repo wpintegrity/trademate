@@ -25,3 +25,8 @@ export const initializeInputValues = (fieldsData, activeSectionSettings) => {
 export const initializeSelectValues = (fieldsData, activeSectionSettings) => {
     return initializeValues(fieldsData, activeSectionSettings, 'select', '');
 };
+
+// Initialize dropdown values
+export const initializeDropdownValues = (fieldsData, activeSectionSettings) => {
+    return initializeValues(fieldsData, activeSectionSettings, 'dropdown', null);
+};

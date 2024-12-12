@@ -8,11 +8,22 @@ import { __ } from '@wordpress/i18n';
 import Switcher from '../components/Switcher';
 import Number from '../components/Number';
 import SelectBtn from '../components/SelectBtn';
+import DropdownSelector from '../components/DropdownSelector';
 
 import { useSettingsFetch } from '../hooks/useSettingsFetch';
 import { useSettingsSubmit } from '../hooks/useSettingsSubmit';
-import { initializeSwitchValues, initializeInputValues, initializeSelectValues } from '../utils/initializeSettings';
-import { handleSwitchChange, handleNumberChange, handleSelectChange } from '../utils/inputHandlers';
+import { 
+    initializeSwitchValues, 
+    initializeInputValues, 
+    initializeSelectValues,
+    initializeDropdownValues
+} from '../utils/initializeSettings';
+import { 
+    handleSwitchChange, 
+    handleNumberChange, 
+    handleSelectChange,
+    handleDropdownChange
+} from '../utils/inputHandlers';
 
 const Content = ({ sections, fields, activeMenuItem }) => {
     const toast = useRef(null); // Create a reference for Toast
@@ -22,10 +33,11 @@ const Content = ({ sections, fields, activeMenuItem }) => {
     const panelHeader = activeSection ? activeSection.title : '';
     const fieldsData = fields[activeMenuItem] || {};
 
-    // State for holding the values of switches, numbers, and selects
+    // State for holding the values of switches, numbers, selects, and dropdown combinations
     const [switchValues, setSwitchValues] = useState({});
     const [inputValues, setInputValues] = useState({});
     const [selectValues, setSelectValues] = useState({});
+    const [dropdownValues, setDropdownValues] = useState({});
 
     // Initialize settings state
     const initializeSettings = (settings) => {
@@ -33,6 +45,7 @@ const Content = ({ sections, fields, activeMenuItem }) => {
         setSwitchValues(initializeSwitchValues(fieldsData, activeSectionSettings));
         setInputValues(initializeInputValues(fieldsData, activeSectionSettings));
         setSelectValues(initializeSelectValues(fieldsData, activeSectionSettings));
+        setDropdownValues(initializeDropdownValues(fieldsData, activeSectionSettings));
     };
 
     // Fetch settings with custom hook
@@ -72,6 +85,17 @@ const Content = ({ sections, fields, activeMenuItem }) => {
                         setValue={(newValue) => handleSelectChange(key, newValue, setSelectValues)}
                     />
                 );
+            case 'dropdown':
+                return (
+                    <DropdownSelector
+                        label={field.label}
+                        description={field.description}
+                        options={field.options}
+                        selectedValue={dropdownValues[key]}
+                        setSelectedValue={(newValue) => handleDropdownChange(key, newValue, setDropdownValues)}
+                    />
+                );
+                
             default:
                 return null; // Unhandled field type
         }
@@ -86,7 +110,7 @@ const Content = ({ sections, fields, activeMenuItem }) => {
             ) : (
                 <>
                     {/* Toast Component for showing notifications */}
-                    <Toast ref={toast} position="bottom-right" /> 
+                    <Toast ref={toast} position="bottom-right" />
 
                     {Object.entries(fieldsData).map(([key, field]) => (
                         <div key={key} className="field-wrapper">
@@ -97,7 +121,7 @@ const Content = ({ sections, fields, activeMenuItem }) => {
                     <div className="flex justify-content-end">
                         <Button 
                             label={ __( 'Submit', 'trademate' ) } 
-                            onClick={() => handleSubmit(activeMenuItem, switchValues, inputValues, selectValues)} 
+                            onClick={() => handleSubmit(activeMenuItem, switchValues, inputValues, selectValues, dropdownValues)} 
                         />
                     </div>
                 </>

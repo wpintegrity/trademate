@@ -1,6 +1,6 @@
 {
   "name": "trademate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An Essential Plugin for WooCommerce to Extend its functionalities",
   "main": "src/index.js",
   "scripts": {

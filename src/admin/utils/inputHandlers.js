@@ -25,3 +25,7 @@ export const handleNumberChange = (key, newValue, setInputValues) => {
 export const handleSelectChange = (key, newValue, setSelectValues) => {
     handleChange(key, newValue, setSelectValues);
 };
+
+export const handleDropdownChange = (key, newValue, setDropdownValues) => {
+    handleChange(key, newValue, setDropdownValues);
+};

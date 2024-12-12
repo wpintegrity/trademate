@@ -21,5 +21,7 @@ class Features {
         new \WpIntegrity\TradeMate\Cart\Manager();
         new \WpIntegrity\TradeMate\Product\Manager();
         new \WpIntegrity\TradeMate\Emails\Manager();
+        new \WpIntegrity\TradeMate\Account\Manager();
+        new \WpIntegrity\TradeMate\Shipping\Manager();
     }
 }

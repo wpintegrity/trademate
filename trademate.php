@@ -4,7 +4,7 @@
  * Plugin URI:        https://wordpress.org/plugins/trademate/
  * Requires Plugins:  woocommerce
  * Description:       Supercharge Your WooCommerce Store’s Capabilities
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 5.2
  * Requires PHP:      7.4
  * Author:            WPIntegrity
