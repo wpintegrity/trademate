@@ -29,3 +29,7 @@ export const handleSelectChange = (key, newValue, setSelectValues) => {
 export const handleDropdownChange = (key, newValue, setDropdownValues) => {
     handleChange(key, newValue, setDropdownValues);
 };
+
+export const handleTextChange = (key, newValue, setTextValues) => {
+    handleChange(key, newValue, setTextValues);
+};

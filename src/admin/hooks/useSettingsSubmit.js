@@ -16,12 +16,20 @@ const saveToLocalStorage = (key, data) => {
  * @returns {Function} handleSubmit - The function to handle the form submission.
  */
 export const useSettingsSubmit = (toast) => {
-    const handleSubmit = async (activeMenuItem, switchValues, inputValues, selectValues, dropdownValues) => {
+    const handleSubmit = async (
+        activeMenuItem, 
+        switchValues, 
+        inputValues, 
+        selectValues, 
+        dropdownValues,
+        textValues
+    ) => {
         const settingsData = {
             ...switchValues,
             ...inputValues,
             ...selectValues,
-            ...dropdownValues
+            ...dropdownValues,
+            ...textValues
         };
 
         const formData = new FormData();

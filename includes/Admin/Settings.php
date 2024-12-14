@@ -161,6 +161,13 @@ class Settings {
                 'type'        => 'switch',
                 'default'     => 'off'
             ],
+            'change_cart_button_text' => [
+                'name'        => 'change_cart_button_text',
+                'label'       => __( 'Change Cart Button Text', 'trademate' ),
+                'description' => __( 'Add/Change your own Add to Cart button text', 'trademate' ),
+                'type'        => 'text',
+                'default'     => ''
+            ],
         ];
 
         $cart_options = [

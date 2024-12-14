@@ -29,7 +29,10 @@ class Product {
             add_action( 'woocommerce_after_quantity_input_field', [ $this, 'quantity_increase_button' ] );
             add_action( 'wp_print_styles', [ $this, 'product_quantity_styles' ] );
         }
-        
+
+        add_filter( 'woocommerce_product_single_add_to_cart_text', [ $this, 'change_cart_button_text' ] );
+        add_filter( 'woocommerce_product_add_to_cart_text', [ $this, 'change_cart_button_text' ] );
+
         add_action( 'wp_enqueue_scripts', [ $this, 'product_scripts' ] );
     }
 
@@ -112,6 +115,22 @@ class Product {
                 }
             </style>
         ";
+    }
+
+    /**
+     * Change "Add to Cart" button text
+     *
+     * @param string $button_text
+     * @return string
+     * @since 1.0.1
+     */
+    public function change_cart_button_text( $button_text ) {
+        global $product;
+        if( $product->is_type( 'simple' ) ) {
+            $custom_text = Helper::get_option( 'change_cart_button_text', 'trademate_product' );
+        }
+
+        return !empty( $custom_text ) ? esc_html( $custom_text ) : $button_text;
     }
 
     /**
