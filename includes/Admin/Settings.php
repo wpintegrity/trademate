@@ -147,6 +147,27 @@ class Settings {
                     ]
                 ]
             ],
+            'external_product_new_tab' => [
+                'name'        => 'external_product_new_tab',
+                'label'       => __( 'External Product New Tab', 'trademate' ),
+                'description' => __( 'Open External/Affiliate Type Products in a new tab', 'trademate' ),
+                'type'        => 'switch',
+                'default'     => 'off'
+            ],
+            'replace_quantity_steppers' => [
+                'name'        => 'replace_quantity_steppers',
+                'label'       => __( 'Replace Quantity Steppers', 'trademate' ),
+                'description' => __( 'Add Plus/Minus Button to increase or decrease quantity field value', 'trademate' ),
+                'type'        => 'switch',
+                'default'     => 'off'
+            ],
+            'change_cart_button_text' => [
+                'name'        => 'change_cart_button_text',
+                'label'       => __( 'Change Cart Button Text', 'trademate' ),
+                'description' => __( 'Add/Change your own Add to Cart button text', 'trademate' ),
+                'type'        => 'text',
+                'default'     => ''
+            ],
         ];
 
         $cart_options = [

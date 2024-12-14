@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Panel } from 'primereact/panel';
 import { Button } from 'primereact/button';
 import { ProgressSpinner } from 'primereact/progressspinner';
@@ -9,6 +9,7 @@ import Switcher from '../components/Switcher';
 import Number from '../components/Number';
 import SelectBtn from '../components/SelectBtn';
 import DropdownSelector from '../components/DropdownSelector';
+import TextInput from '../components/TextInput';
 
 import { useSettingsFetch } from '../hooks/useSettingsFetch';
 import { useSettingsSubmit } from '../hooks/useSettingsSubmit';
@@ -16,13 +17,15 @@ import {
     initializeSwitchValues, 
     initializeInputValues, 
     initializeSelectValues,
-    initializeDropdownValues
+    initializeDropdownValues,
+    initializeTextValues
 } from '../utils/initializeSettings';
 import { 
     handleSwitchChange, 
     handleNumberChange, 
     handleSelectChange,
-    handleDropdownChange
+    handleDropdownChange,
+    handleTextChange
 } from '../utils/inputHandlers';
 
 const Content = ({ sections, fields, activeMenuItem }) => {
@@ -38,6 +41,7 @@ const Content = ({ sections, fields, activeMenuItem }) => {
     const [inputValues, setInputValues] = useState({});
     const [selectValues, setSelectValues] = useState({});
     const [dropdownValues, setDropdownValues] = useState({});
+    const [textValues, setTextValues] = useState({});
 
     // Initialize settings state
     const initializeSettings = (settings) => {
@@ -46,7 +50,13 @@ const Content = ({ sections, fields, activeMenuItem }) => {
         setInputValues(initializeInputValues(fieldsData, activeSectionSettings));
         setSelectValues(initializeSelectValues(fieldsData, activeSectionSettings));
         setDropdownValues(initializeDropdownValues(fieldsData, activeSectionSettings));
+        setTextValues(initializeTextValues(fieldsData, activeSectionSettings));
     };
+
+    const handleSwitchChangeMemoized = useCallback(
+        (key, newValue) => handleSwitchChange(key, newValue, setSwitchValues),
+        [setSwitchValues]
+    );
 
     // Fetch settings with custom hook
     const loading = useSettingsFetch(activeMenuItem, initializeSettings);
@@ -62,8 +72,8 @@ const Content = ({ sections, fields, activeMenuItem }) => {
                     <Switcher
                         label={field.label}
                         description={field.description}
-                        switchValue={switchValues[key]}
-                        setSwitchValue={(newValue) => handleSwitchChange(key, newValue, setSwitchValues)}
+                        switchValue={switchValues[key] ?? 'off'}
+                        setSwitchValue={(newValue) => handleSwitchChangeMemoized(key, newValue, setSwitchValues)}
                     />
                 );
             case 'number':
@@ -71,7 +81,7 @@ const Content = ({ sections, fields, activeMenuItem }) => {
                     <Number
                         label={field.label}
                         description={field.description}
-                        inputValue={inputValues[key]}
+                        inputValue={inputValues[key] ?? ''}
                         setInputValue={(newValue) => handleNumberChange(key, newValue, setInputValues)}
                     />
                 );
@@ -81,7 +91,7 @@ const Content = ({ sections, fields, activeMenuItem }) => {
                         label={field.label}
                         description={field.description}
                         selectOptions={field.options}
-                        value={selectValues[key]}
+                        value={selectValues[key] ?? field.options[0]?.value}
                         setValue={(newValue) => handleSelectChange(key, newValue, setSelectValues)}
                     />
                 );
@@ -91,8 +101,17 @@ const Content = ({ sections, fields, activeMenuItem }) => {
                         label={field.label}
                         description={field.description}
                         options={field.options}
-                        selectedValue={dropdownValues[key]}
+                        selectedValue={dropdownValues[key] ?? ''}
                         setSelectedValue={(newValue) => handleDropdownChange(key, newValue, setDropdownValues)}
+                    />
+                );
+            case 'text':
+                return (
+                    <TextInput
+                        label={field.label}
+                        description={field.description}
+                        inputValue={textValues[key] ?? ''}
+                        setInputValue={(newValue) => handleTextChange(key, newValue, setTextValues)}
                     />
                 );
                 
@@ -120,8 +139,15 @@ const Content = ({ sections, fields, activeMenuItem }) => {
 
                     <div className="flex justify-content-end">
                         <Button 
-                            label={ __( 'Submit', 'trademate' ) } 
-                            onClick={() => handleSubmit(activeMenuItem, switchValues, inputValues, selectValues, dropdownValues)} 
+                            label={ __( 'Save Changes', 'trademate' ) } 
+                            onClick={() => handleSubmit(
+                                activeMenuItem, 
+                                switchValues, 
+                                inputValues, 
+                                selectValues, 
+                                dropdownValues,
+                                textValues
+                            )} 
                         />
                     </div>
                 </>

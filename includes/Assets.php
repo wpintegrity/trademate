@@ -69,9 +69,6 @@ class Assets {
             'trademate-admin'    => [
                 'src' => TRADEMATE_ASSETS . 'css/admin' . $suffix . '.css'
             ],
-            'trademate-frontend' => [
-                'src' => TRADEMATE_ASSETS . 'css/frontend' . $suffix . '.css'
-            ],
             'trademate-clear-cart' => [
                 'src' => TRADEMATE_ASSETS . 'css/frontend/clear-cart-handler' . $suffix . '.css'
             ]
@@ -93,13 +90,13 @@ class Assets {
                 'src'       => TRADEMATE_ASSETS . 'js/admin' . $suffix . '.js',
                 'in_footer' => true
             ],
-            'trademate-frontend' => [
-                'src'       => TRADEMATE_ASSETS . 'js/frontend' . $suffix . '.js',
+            'trademate-clear-cart' => [
+                'src'       => TRADEMATE_ASSETS . 'js/frontend/clear-cart-handler' . $suffix . '.js',
                 'deps'      => [ 'jquery' ],
                 'in_footer' => true
             ],
-            'trademate-clear-cart' => [
-                'src'       => TRADEMATE_ASSETS . 'js/frontend/clear-cart-handler' . $suffix . '.js',
+            'trademate-product-quantity' => [
+                'src'       => TRADEMATE_ASSETS . 'js/frontend/quantity-handler' . $suffix . '.js',
                 'deps'      => [ 'jquery' ],
                 'in_footer' => true
             ]

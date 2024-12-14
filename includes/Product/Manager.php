@@ -17,5 +17,6 @@ class Manager {
     public function __construct() {
         // Initialize Product functionality classes
         new Stock();
+        new Product();
     }
 }
