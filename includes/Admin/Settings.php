@@ -154,6 +154,13 @@ class Settings {
                 'type'        => 'switch',
                 'default'     => 'off'
             ],
+            'replace_quantity_steppers' => [
+                'name'        => 'replace_quantity_steppers',
+                'label'       => __( 'Replace Quantity Steppers', 'trademate' ),
+                'description' => __( 'Add Plus/Minus Button to increase or decrease quantity field value', 'trademate' ),
+                'type'        => 'switch',
+                'default'     => 'off'
+            ],
         ];
 
         $cart_options = [

@@ -23,6 +23,14 @@ class Product {
             remove_action( 'woocommerce_external_add_to_cart', 'woocommerce_external_add_to_cart', 30 );
             add_action( 'woocommerce_external_add_to_cart', [ $this, 'external_add_to_cart'] );
         }
+
+        if( Helper::get_option( 'replace_quantity_steppers', 'trademate_product' ) ) {
+            add_action( 'woocommerce_before_quantity_input_field', [ $this, 'quantity_decrease_button' ] );
+            add_action( 'woocommerce_after_quantity_input_field', [ $this, 'quantity_increase_button' ] );
+            add_action( 'wp_print_styles', [ $this, 'product_quantity_styles' ] );
+        }
+        
+        add_action( 'wp_enqueue_scripts', [ $this, 'product_scripts' ] );
     }
 
     /**
@@ -60,5 +68,62 @@ class Product {
                 'button_text' => $product->single_add_to_cart_text(),
             ]
         );
+    }
+
+    /**
+     * Outputs the decrease button HTML for the product quantity.
+     *
+     * @return void
+     * @since 1.0.1
+     */
+    public function quantity_decrease_button() {
+        echo '<button type="button" class="tm-qty-minus">−</button>';
+    }
+
+    /**
+     * Outputs the increase button HTML for the product quantity.
+     *
+     * @return void
+     * @since 1.0.1
+     */
+    public function quantity_increase_button() {
+        echo '<button type="button" class="tm-qty-plus">+</button>';
+    }
+
+    /**
+     * Outputs inline CSS to remove spinners from number inputs and style the quantity input.
+     *
+     * @return void
+     * @since 1.0.1
+     */
+    public function product_quantity_styles() {
+        echo "
+            <style>
+                /* Chrome, Safari, Edge, Opera */
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                /* Firefox */
+                input[type=number] {
+                    -moz-appearance: textfield;
+                }
+            </style>
+        ";
+    }
+
+    /**
+     * Enqueues custom JavaScript for product quantity functionality.
+     * This ensures the script is loaded only on product pages.
+     *
+     * @return void
+     * @since 1.0.1
+     */
+    public function product_scripts() {
+        if( is_product() ) {
+            wp_enqueue_script( 'trademate-product-quantity' );
+        }
     }
 }
