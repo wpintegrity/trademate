@@ -147,6 +147,13 @@ class Settings {
                     ]
                 ]
             ],
+            'external_product_new_tab' => [
+                'name'        => 'external_product_new_tab',
+                'label'       => __( 'External Product New Tab', 'trademate' ),
+                'description' => __( 'Open External/Affiliate Type Products in a new tab', 'trademate' ),
+                'type'        => 'switch',
+                'default'     => 'off'
+            ],
         ];
 
         $cart_options = [
