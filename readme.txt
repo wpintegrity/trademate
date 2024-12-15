@@ -54,6 +54,9 @@ This section describes how to install the plugin and get it working.
 = Version 1.0.1 - Dec 20, 2024 =
 - **New:** [WooCommerce] Terms & Conditions for the Registration Form
 - **New:** [WooCommerce] Hide all other shipping methods when Free Shipping is available
+- **New:** [WooCommerce] Open External/Affiliate Products in a new tab
+- **New:** [WooCommerce] Convert quantity up/down arrow steppers to plus/minus button
+- **New:** [WooCommerce] Allow to change "Add to Cart" button text
 
 = Version 1.0.0 - Dec 10, 2024 =
 - **New:** [WooCommerce] New Customer Registration Email for Admin
