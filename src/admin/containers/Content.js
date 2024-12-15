@@ -53,11 +53,6 @@ const Content = ({ sections, fields, activeMenuItem }) => {
         setTextValues(initializeTextValues(fieldsData, activeSectionSettings));
     };
 
-    const handleSwitchChangeMemoized = useCallback(
-        (key, newValue) => handleSwitchChange(key, newValue, setSwitchValues),
-        [setSwitchValues]
-    );
-
     // Fetch settings with custom hook
     const loading = useSettingsFetch(activeMenuItem, initializeSettings);
 
@@ -72,8 +67,8 @@ const Content = ({ sections, fields, activeMenuItem }) => {
                     <Switcher
                         label={field.label}
                         description={field.description}
-                        switchValue={switchValues[key] ?? 'off'}
-                        setSwitchValue={(newValue) => handleSwitchChangeMemoized(key, newValue, setSwitchValues)}
+                        switchValue={switchValues[key] ?? false}
+                        setSwitchValue={(newValue) => handleSwitchChange(key, newValue, setSwitchValues)}
                     />
                 );
             case 'number':
@@ -81,7 +76,7 @@ const Content = ({ sections, fields, activeMenuItem }) => {
                     <Number
                         label={field.label}
                         description={field.description}
-                        inputValue={inputValues[key] ?? ''}
+                        inputValue={inputValues[key] ?? 0}
                         setInputValue={(newValue) => handleNumberChange(key, newValue, setInputValues)}
                     />
                 );

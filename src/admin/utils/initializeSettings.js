@@ -13,12 +13,12 @@ const initializeValues = (fieldsData, activeSectionSettings, fieldType, defaultF
 
 // Initialize switch values
 export const initializeSwitchValues = (fieldsData, activeSectionSettings) => {
-    return initializeValues(fieldsData, activeSectionSettings, 'switch', 'on');
+    return initializeValues(fieldsData, activeSectionSettings, 'switch', false);
 };
 
 // Initialize input values
 export const initializeInputValues = (fieldsData, activeSectionSettings) => {
-    return initializeValues(fieldsData, activeSectionSettings, 'number', '');
+    return initializeValues(fieldsData, activeSectionSettings, 'number', 0);
 };
 
 // Initialize select values
