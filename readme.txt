@@ -57,6 +57,7 @@ This section describes how to install the plugin and get it working.
 - **New:** [WooCommerce] Open External/Affiliate Products in a new tab
 - **New:** [WooCommerce] Convert quantity up/down arrow steppers to plus/minus button
 - **New:** [WooCommerce] Allow to change "Add to Cart" button text
+- **New:** [WooCommerce] Add "Out of Stock" on the Shop and Single Product pages
 
 = Version 1.0.0 - Dec 10, 2024 =
 - **New:** [WooCommerce] New Customer Registration Email for Admin
