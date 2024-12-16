@@ -114,6 +114,7 @@ final class Plugin {
         }
 
         $this->container['features'] = new Features();
+        $this->container['customizer'] = new Customizer();
     }
 
     /**

@@ -4,7 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
 const entryPoint = {
-    admin                        : './src/admin/index.js',
+    'admin'                      : './src/admin/settings/index.js',
+    'customizer-preview'         : './src/admin/customizer-preview.js',
     'frontend/clear-cart-handler': './src/frontend/clear-cart-handler.js',
     'frontend/quantity-handler'  : './src/frontend/quantity-handler.js',
     'blocks/clear-cart-block'    : './src/blocks/clear-cart-button/index.js'

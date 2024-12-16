@@ -168,6 +168,13 @@ class Settings {
                 'type'        => 'text',
                 'default'     => ''
             ],
+            'out_of_stock_badge' => [
+                'name'        => 'out_of_stock_badge',
+                'label'       => __( 'Out of Stock Badge', 'trademate' ),
+                'description' => __( 'Show "Out of Stock" badge on the Shop and Single Product pages', 'trademate' ),
+                'type'        => 'switch',
+                'default'     => 'off'
+            ],
         ];
 
         $cart_options = [
