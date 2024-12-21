@@ -1,0 +1,82 @@
+// Variables for styling
+$slider-thumb-size: 20px;
+$slider-track-height: 6px;
+$slider-track-bg: #ddd;
+$slider-thumb-bg: #0073aa;
+$slider-tooltip-bg: #333;
+$slider-tooltip-color: #fff;
+$slider-thumb-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+$slider-thumb-border-radius: 50%;
+$slider-tooltip-font-size: 12px;
+
+.customize-control-range {
+    position: relative;
+
+    .customize-control-title {
+        margin-bottom: 30px;
+    }
+}
+// Mixin for slider thumb
+@mixin slider-thumb {
+    width: $slider-thumb-size;
+    height: $slider-thumb-size;
+    border-radius: $slider-thumb-border-radius;
+    background: $slider-thumb-bg;
+    cursor: pointer;
+    border: none;
+    box-shadow: $slider-thumb-shadow;
+    position: relative;
+}
+
+// Slider styles
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: $slider-track-height;
+    background: $slider-track-bg;
+    border-radius: 3px;
+    outline: none;
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        @include slider-thumb;
+    }
+
+    &::-moz-range-thumb {
+        @include slider-thumb;
+    }
+
+    &::-ms-thumb {
+        @include slider-thumb;
+    }
+
+    &:hover + .range-slider-tooltip {
+        display: block; // Show tooltip on hover
+    }
+}
+
+// Tooltip styling
+.range-slider-tooltip {
+    position: absolute;
+    left: 50%;
+    transform: translate(-75%, -180%);
+    padding: 5px 10px;
+    border-radius: 3px;
+    background: $slider-tooltip-bg;
+    color: $slider-tooltip-color;
+    font-size: $slider-tooltip-font-size;
+    white-space: nowrap;
+    pointer-events: none;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: $slider-tooltip-bg transparent transparent transparent;
+    }
+}

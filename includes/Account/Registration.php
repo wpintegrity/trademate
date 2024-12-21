@@ -20,7 +20,7 @@ class Registration {
      */
     public function __construct() {
         add_action( 'woocommerce_register_form', [ $this, 'terms_conditions' ], 9 );
-        add_action( 'woocommerce_process_registration_errors', [ $this, 'terms_and_conditions_validation' ], 10, 3 );
+        add_action( 'woocommerce_process_registration_errors', [ $this, 'terms_and_conditions_validation' ] );
     }
     
     /**
@@ -53,24 +53,22 @@ class Registration {
      * @param WP_Error $errors Registration errors object.
      * @return WP_Error Modified registration errors object.
      */
-    public function terms_and_conditions_validation( $errors ) {
-        $nonce_value = isset( $_POST['_wpnonce'] ) ? wp_unslash( $_POST['_wpnonce'] ) : '';
-        $nonce_value = isset( $_POST['woocommerce-register-nonce'] ) ? wp_unslash( $_POST['woocommerce-register-nonce'] ) : $nonce_value;
-
-        // Only perform validation for 'customer' role and valid nonce.
-        if ( ! isset( $_POST['role'] ) || 'customer' !== $_POST['role'] || ! wp_verify_nonce( $nonce_value, 'woocommerce-register' ) ) {
-            return $errors;
+    function terms_and_conditions_validation( $errors ) {
+        // Check nonce for security.
+        $nonce_value = sanitize_text_field( wp_unslash( $_POST['woocommerce-register-nonce'] ?? $_POST['_wpnonce'] ?? '' ) );
+    
+        if ( ! wp_verify_nonce( $nonce_value, 'woocommerce-register' ) ) {
+            $errors->add( 'nonce_error', __( 'Security check failed. Please try again.', 'trademate' ) );
+            return;
         }
-
+    
+        // Validate Terms and Conditions checkbox.
         if ( Helper::get_option( 'my_account_reg_tnc', 'trademate_account' ) ) {
             if ( empty( $_POST['trademate_terms_conditions'] ) ) {
-                error_log( 'Terms and conditions not accepted.' );
-                $errors->add( 'terms_error', __( 'Please read and accept the terms and conditions before registration', 'trademate' ) );
-            } else {
-                error_log( 'Terms and conditions accepted.' );
+                $errors->add( 'terms_error', __( 'Please read and accept the terms and conditions before registration.', 'trademate' ) );
             }
         }
-
+    
         return $errors;
     }
     

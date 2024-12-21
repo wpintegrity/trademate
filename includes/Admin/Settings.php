@@ -175,6 +175,13 @@ class Settings {
                 'type'        => 'switch',
                 'default'     => 'off'
             ],
+            'product_sales_countdown' => [
+                'name'        => 'product_sales_countdown',
+                'label'       => __( 'Product Sales Countdown Timer', 'trademate' ),
+                'description' => __( 'Add a sales countdown timer on the Shop and Single Product pages', 'trademate' ),
+                'type'        => 'switch',
+                'default'     => 'off'
+            ],
         ];
 
         $cart_options = [

@@ -71,7 +71,7 @@ class Assets {
             ],
             'trademate-clear-cart' => [
                 'src' => TRADEMATE_ASSETS . 'css/frontend/clear-cart-handler' . $suffix . '.css'
-            ]
+            ],
         ];
 
         return $styles;
@@ -99,7 +99,12 @@ class Assets {
                 'src'       => TRADEMATE_ASSETS . 'js/frontend/quantity-handler' . $suffix . '.js',
                 'deps'      => [ 'jquery' ],
                 'in_footer' => true
-            ]
+            ],
+            'trademate-sales-countdown' => [
+                'src'       => TRADEMATE_ASSETS . 'js/frontend/sale-countdown-timer' . $suffix . '.js',
+                'deps'      => [ 'jquery' ],
+                'in_footer' => true
+            ],
         ];
 
         return $scripts;

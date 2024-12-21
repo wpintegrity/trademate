@@ -18,5 +18,6 @@ class Manager {
         // Initialize Product functionality classes
         new Stock();
         new Product();
+        new Countdown();
     }
 }

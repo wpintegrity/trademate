@@ -21,7 +21,6 @@ class Customizer {
      */
     public function __construct() {
         add_action( 'customize_register', [ $this, 'customizer_section' ] );
-        add_action( 'customize_controls_print_styles', [ $this, 'customizer_styles' ] );
         add_action( 'customize_controls_enqueue_scripts', [ $this, 'customizer_scripts' ] );
     }
 
@@ -64,25 +63,7 @@ class Customizer {
          */
 
         do_action( 'trademate_customize_register', $wp_customize );
-    }
-
-    /**
-     * Minimal Customizer Styles
-     *
-     * @return void
-     * @since 1.0.1
-     */
-    public function customizer_styles() {
-        echo '
-        <style>
-            #sub-accordion-section-trademate_product .customize-control-hidden .customize-control-title {
-                font-size: 18px; 
-                font-weight: bold;
-                color: #333;
-            }
-        </style>
-        ';
-    }
+    }    
 
     /**
      * Customer Preview Scripts
@@ -94,6 +75,11 @@ class Customizer {
         $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
         if( is_customize_preview() ) {
+            wp_enqueue_style(
+                'trademate-customizer', 
+                TRADEMATE_ASSETS . 'css/customizer-preview' . $suffix . '.css',
+            );
+
             wp_enqueue_script( 
                 'trademate-customizer-preview',
                 TRADEMATE_ASSETS . 'js/customizer-preview' . $suffix . '.js',
@@ -106,7 +92,7 @@ class Customizer {
                 'trademate-customizer-preview', 
                 'tm_wp_customizer_settings', 
                 [
-                    'shopPageUrl' => esc_url( get_permalink( wc_get_page_id('shop') ) )
+                    'shopPageUrl'    => esc_url( get_permalink( wc_get_page_id('shop') ) )
                 ]
             );
         }
